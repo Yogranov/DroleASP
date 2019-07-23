@@ -1,0 +1,80 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainLayout.Master.cs" Inherits="Drole.MainLayout" %>
+
+<!DOCTYPE html>
+
+<html dir="rtl">
+<head runat="server">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="/js/aos.js"></script>
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/FontAwesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/aos.css" />
+    
+    <!-- Jquery-ui-1.12.1 -->
+    <script src="/js/jquery-ui-1.12.1.min.js"></script>
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/Site.css" />
+
+    <link rel="stylesheet" type="text/css" href="/css/Custom.css" />
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-light navbar-light" dir="ltr">
+    <img style="padding:0" class="navbar-brand"src="../../Content/Images/drole-logo.png" alt="logo"/>  
+        
+            
+            <asp:label id="NavHello" runat="server" />
+        
+        
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" dir="rtl">
+        <ul class="navbar-nav">
+            <li class="nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")">
+                <a class="nav-link" href="/Default.aspx">ראשי</a>
+            </li>
+            <li class="nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "legalInformation" ? "active" : "")">
+                <a class="nav-link" href="/View/Home/LegalInformation.aspx">מידע משפטי</a>
+            </li>
+            <li class="nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "Contact" ? "active" : "")">
+                <a class="nav-link" href="/View/Home/ContactUs.aspx">צור קשר</a>
+            </li>
+            <li class="nav-item @(ViewContext.RouteData.Values["Action"].ToString() == "About" ? "active" : "")">
+                <a class="nav-link" href="/View/Home/About.aspx">אודות</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+        <div>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <footer>כל הזכויות שמורות - DroLe</footer>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>
